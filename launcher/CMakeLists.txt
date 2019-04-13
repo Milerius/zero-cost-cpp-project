@@ -1,0 +1,1 @@
+add_executable(launcher src/main.cpp)
