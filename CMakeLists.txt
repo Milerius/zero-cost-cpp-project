@@ -5,8 +5,6 @@ endif ()
 cmake_minimum_required(VERSION 3.13)
 project(zero_cost_project)
 
-set(CMAKE_CXX_STANDARD 17) ##! Our project will use C++17, adapt according to your project.
-
 ##! Add subproject here.
 add_subdirectory(client)
 add_subdirectory(server)
