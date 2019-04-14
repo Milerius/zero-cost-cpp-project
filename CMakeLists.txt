@@ -5,6 +5,18 @@ endif ()
 cmake_minimum_required(VERSION 3.13)
 project(zero_cost_project)
 
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+include(helpers)
+
+##! Conan Setup
+
+##! In case you use an IDE like CLion, you need to execute before the invocation of CMake a conan install.
+exec_conan() ##!< Remove in your project if not necessary
+
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake) ##! Bridge conan dependancies and CMake
+conan_basic_setup(TARGETS) ##! Allow us to use our dependancies as CMake target such as CONAN_PKG::my_dependancies
+
+
 ##! Add subproject here.
 add_subdirectory(client)
 add_subdirectory(server)
