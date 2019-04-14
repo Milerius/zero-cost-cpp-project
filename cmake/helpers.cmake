@@ -1,6 +1,9 @@
 macro(exec_conan)
     if (NOT EXISTS conanbuildinfo.cmake)
         message("Conan need to be executed")
+        execute_process(COMMAND conan config install ../.conan/
+                RESULT_VARIABLE CMD_ERROR
+                OUTPUT_FILE CMD_OUTPUT)
         execute_process(COMMAND conan install ../
                 RESULT_VARIABLE CMD_ERROR
                 OUTPUT_FILE CMD_OUTPUT)
