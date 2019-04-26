@@ -5,8 +5,9 @@ endif ()
 cmake_minimum_required(VERSION 3.13)
 project(zero_cost_project LANGUAGES CXX)
 
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-include(helpers)
+if (NOT EXISTS conanbuildinfo.cmake)
+  message(FATAL_ERROR "Conan need to be executed: conan install <path_to_your_conanfile.txt>")
+endif ()
 
 ##! Conan Setup
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake) ##! Bridge conan dependancies and CMake
